@@ -421,12 +421,12 @@
   font-size: 30px;
 }
 
-.headerinner {
+.header_inner {
   width: 100%;
   max-width: 600px;
 }
 
-.headerlead {
+.header_lead {
   margin-bottom: 0px;
   font-family: "Space Mono", sans-serif;
   font-weight: 400;
@@ -447,4 +447,114 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.w_button {
+  display: inline-block;
+  padding: 9px 15px;
+  background-color: #3898EC;
+  color: white;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.primary_button {
+  padding: 16px 32px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #00f;
+  background-image: linear-gradient(75deg, #12c2e9, #c471ed 50%, #f64f59);
+  box-shadow: none;
+  -webkit-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: color 200ms ease, -webkit-transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  transition: color 200ms ease, -webkit-transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  transition: color 200ms ease, transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  transition: color 200ms ease, transform 200ms cubic-bezier(.175, .885, .32, 1.275), -webkit-transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  color: #202020;
+  font-weight: 700;
+}
+
+.primary_button:hover {
+  box-shadow: none;
+  -webkit-transform: translate(0px, -4px);
+  -ms-transform: translate(0px, -4px);
+  transform: translate(0px, -4px);
+  color: rgba(32, 32, 32, 0.8);
+}
+
+.primary_button:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.primary_button:focus {
+  box-shadow: 0 0 3px 1px rgba(0, 0, 255, 0.48);
+}
+
+.secondary_button {
+  padding: 16px 32px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  border-color: hsla(0, 0%, 100%, 0.16);
+  border-radius: 5px;
+  background-color: transparent;
+  box-shadow: none;
+  -webkit-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: border-color 300ms ease, color 200ms ease, -webkit-transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  transition: border-color 300ms ease, color 200ms ease, -webkit-transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  transition: border-color 300ms ease, color 200ms ease, transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  transition: border-color 300ms ease, color 200ms ease, transform 200ms cubic-bezier(.175, .885, .32, 1.275), -webkit-transform 200ms cubic-bezier(.175, .885, .32, 1.275);
+  color: #fff;
+  font-weight: 700;
+}
+
+.secondary_button:hover {
+  border-color: #fff;
+  box-shadow: none;
+  -webkit-transform: translate(0px, -4px);
+  -ms-transform: translate(0px, -4px);
+  transform: translate(0px, -4px);
+}
+
+.secondary_button:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.secondary_button:focus {
+  box-shadow: 0 0 3px 1px rgba(0, 0, 255, 0.48);
+}
+
+.no_margin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
