@@ -1,7 +1,10 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/home.module.css";
 import Header from "../components/Header.js";
 
+/** TODO @joelmce 
+ *  Clean up this function, but also fix the tiling
+*/
 export default function Home() {
   return (
     <div className={`${styles.container} ${styles.wcontainer}`}>
@@ -23,6 +26,8 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+
         <h2 className={styles.nomargin}>Marketplace.</h2>
         <section id="colors" className={styles.stylesection}>
           <div className={styles.colortiles}>
