@@ -22,6 +22,7 @@ const connect_wallet = async (p) => {
 
     if (accountAddress /* Success */) {
       cookie.set("wallet", accountAddress);
+      window.location.href = "/"
     }
   } catch (e) {
     console.log("Sorry, there was an error with connecting your wallet: " + e);
@@ -32,6 +33,7 @@ export const disconnect = async(p) => {
   p.preventDefault();
 
   cookie.remove("wallet");
+  window.location.href = "/connect"
 }
 
 export default function Connect() {

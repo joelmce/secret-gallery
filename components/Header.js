@@ -2,7 +2,7 @@ import header from ".//stylesheets/header.module.css";
 import { disconnect } from "../pages/connect";
 
 export default function Header(props) {
-  if (props.session) {
+  if (props.session !== null) {
     return (
       <div>
         <nav className={header.navbar}>
@@ -19,7 +19,6 @@ export default function Header(props) {
           </div>
           <div className="source_info">
             <a
-              href="/"
               className={`${header.create_an_experience} ${header.primary_button} ${header.wbutton}`}
               onClick={disconnect}
             >
@@ -30,9 +29,8 @@ export default function Header(props) {
         </nav>
         {props.children}
       </div>
-    );
-  }
-
+    )
+  }  
   return (
     <div>
       <nav className={header.navbar}>
@@ -59,5 +57,5 @@ export default function Header(props) {
 
       {props.children}
     </div>
-  );
+  )
 }
