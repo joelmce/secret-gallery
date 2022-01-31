@@ -3,34 +3,38 @@ import Header from "../components/Header.js";
 import styles from "../styles/home.module.css";
 import cookie from "js-cookie";
 
-export default function Connect() {
-  /**
-   * Ask the user to connect their Keplr wallet
-   */
-  const connect_wallet = async (p) => {
-    p.preventDefault();
-    try {
-      if (!window.getOfflineSigner || !window.keplr) {
-        return alert("Please install Keplr");
-      }
-
-      let chainId = "secret-4"; // Maybe we need to make this dynamic
-      await window.keplr.enable(chainId);
-
-      const offlineSigner = window.getOfflineSigner(chainId);
-      const accounts = await offlineSigner.getAccounts();
-      let accountAddress = accounts[0].address; // User's connected address
-
-      if (accountAddress /* Success */) {
-        cookie.set("wallet", accountAddress);
-      }
-    } catch (e) {
-      console.log(
-        "Sorry, there was an error with connecting your wallet: " + e
-      );
+/**
+ * Ask the user to connect their Keplr wallet
+ */
+const connect_wallet = async (p) => {
+  p.preventDefault();
+  try {
+    if (!window.getOfflineSigner || !window.keplr) {
+      return alert("Please install Keplr");
     }
-  };
 
+    let chainId = "secret-4"; // Maybe we need to make this dynamic
+    await window.keplr.enable(chainId);
+
+    const offlineSigner = window.getOfflineSigner(chainId);
+    const accounts = await offlineSigner.getAccounts();
+    let accountAddress = accounts[0].address; // User's connected address
+
+    if (accountAddress /* Success */) {
+      cookie.set("wallet", accountAddress);
+    }
+  } catch (e) {
+    console.log("Sorry, there was an error with connecting your wallet: " + e);
+  }
+};
+
+export const disconnect = async(p) => {
+  p.preventDefault();
+
+  cookie.remove("wallet");
+}
+
+export default function Connect() {
   return (
     <>
       <Head>

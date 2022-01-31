@@ -64,5 +64,10 @@ export default function Home({ wallet }) {
 }
 
 export function getServerSideProps({ req, res }) {
-  return { props: { wallet: req.cookies.wallet } };
+  if(req) {
+    return { props: { wallet: req.cookies.wallet } };
+  }
+  return {
+    props: {}
+  }
 }
