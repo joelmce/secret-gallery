@@ -9,6 +9,7 @@ import {
 
 import Experiment from ".//Experiment";
 
+
 function CameraOp() {
   useFrame((state) => {
     if(state.camera.position.y > 3) {
@@ -32,6 +33,7 @@ export default function Index() {
       camera={{ position: [20, 3, -20], fov: 60 }}
       shadowMap
       style={{ height: "100vh", width: "100vw", top: 0, left: 0 }}
+      colorManagement
       
     >
       
