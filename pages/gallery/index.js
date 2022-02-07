@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   FlyControls,
@@ -7,9 +7,13 @@ import {
   PointerLockControls,
 } from "@react-three/drei";
 
-import Experiment from ".//Experiment";
-import { DirectionalLight } from "three";
+import Experiment from "./Experiment";
+import { useKeyState } from "use-key-state";
 
+/**
+ * Handles the custom camera state so we can force the player in one position
+ * @returns null but will never return null
+ */
 function CameraOp() {
   useFrame((state) => {
     if (state.camera.position.y > 3) {
@@ -22,34 +26,43 @@ function CameraOp() {
   return null;
 }
 
-
 export default function Index() {
-  return (
-    <Canvas
-      concurrent
-      gl={{ alpha: true }}
-      camera={{ position: [20, 3, -20], fov: 60 }}
-      shadows
-      style={{ height: "100vh", width: "100vw", top: 0, left: 0 }}
-      colorManagement
-      onCreated={(gl) => {
-        gl.physicallyCorrectLights = true;
-      }}
-    >
-      <Suspense
-        fallback={
-          <Html center>
-            <Loader />
-          </Html>
-        }
-      >
-        <PointerLockControls />
-      
-        <Experiment />
+  const { keyE } = useKeyState({ keyE: "e" });
 
-        <FlyControls movementSpeed={10} />
-        <CameraOp />
-      </Suspense>
-    </Canvas>
+  useEffect(() => {
+    if (keyE.down) {
+      console.log("test");
+    } else if (keyE.up) {
+      console.log("Up");
+    }
+  }, [keyE]);
+  return (
+    <>
+      <Canvas
+        concurrent
+        gl={{ alpha: true }}
+        camera={{ position: [20, 3, -20], fov: 60 }}
+        shadows
+        style={{ height: "100vh", width: "100vw", top: 0, left: 0 }}
+        colorManagement
+        onCreated={(gl) => {
+          gl.physicallyCorrectLights = true;
+        }}
+      >
+        <Suspense
+          fallback={
+            <Html center zIndexRange={1}>
+              <Loader />
+            </Html>
+          }
+        >
+          <PointerLockControls />
+
+          <Experiment />
+          <FlyControls movementSpeed={10} />
+          <CameraOp />
+        </Suspense>
+      </Canvas>
+    </>
   );
 }

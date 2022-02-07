@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Header from "../components/Header.js";
 import styles from "../styles/home.module.css";
 import cookie from "js-cookie";
 

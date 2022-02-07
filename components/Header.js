@@ -1,5 +1,5 @@
 import header from ".//stylesheets/header.module.css";
-import { disconnect } from "../pages/connect";
+import { disconnect } from '../pages/connect';
 
 export default function Header(props) {
   if (props.session !== null) {

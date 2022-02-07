@@ -1,0 +1,35 @@
+.hoverBox {
+  background: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  right: 50px;
+  bottom: 50px;
+  z-index: 2;
+
+  width: 20%;
+  height: auto;
+
+  position: absolute;
+}
+
+.hoverBoxTitle {
+  font-weight: bold;
+}
+
+.hoverBoxInfo {
+  line-height: 1;
+  letter-spacing: 0.1px;
+  font-size: 12px;
+}
+
+.hoverBox_more {
+  background-color: aliceblue;
+  font-weight: 100;
+  width: 30%;
+  height: auto;
+  margin: 0;
+  display: block;
+
+  font-size: 9px;
+}
