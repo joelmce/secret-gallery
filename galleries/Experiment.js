@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, useAnimations, Html } from "@react-three/drei";
+import { getState } from '../pages/new/index'
+
 export default function Experiment({ ...props }) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/Experiment.glb");
+  const { nodes, materials, animations } = useGLTF("./Experiment.glb");
   const [hovered, setHovered] = useState(false);
+  let state = getState
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -29,7 +32,6 @@ export default function Experiment({ ...props }) {
         material={materials.birk1_bn}
       />
       <mesh geometry={nodes.treeTrunk.geometry} material={materials.birch1} />
-
       <group
         position={[30.98, 3.6, 4.41]}
         onPointerOver={(e) => {

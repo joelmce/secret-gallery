@@ -21,7 +21,7 @@ const connect_wallet = async (p) => {
 
     if (accountAddress /* Success */) {
       cookie.set("wallet", accountAddress);
-      window.location.href = "/"
+      window.location.href = "/new"
     }
   } catch (e) {
     console.log("Sorry, there was an error with connecting your wallet: " + e);
