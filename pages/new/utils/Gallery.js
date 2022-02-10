@@ -7,10 +7,7 @@
  * 
  * Edit and deleting will be a feature but low priority
  */
-
-let galleries = [
-    {id, alias}
-]
+let galleries = [{id, alias}]
 
 /**
  * @param {*} selected Type of NFT gallery selected
@@ -18,7 +15,10 @@ let galleries = [
  * @param {boolean} alias OPTIONAL, showcase username instead of wallet address
  */
 export function Gallery(selected, custom, alias) {
-    this.selected = selected
+    if(selected == "Experiment") {
+        this.selected = selected
+    } else { console.log("Secret Gallery: gallery selected does not exist.") }
+    
     this.custom = custom
     this.alias = alias
 }
@@ -29,6 +29,11 @@ const alias = () => this.alias;
 const setAlias = (_alias) => {this.alias = _alias};
 const setCustom = (_custom) => {this.custom = _custom};
 
+/**
+ * Saves instance to array. Eventually will be database
+ * @returns {boolean} default true
+ * TODO @joelmce catch if scope is undefined/null
+ */
 const save = () => {
     galleries.id = custom()
     galleries.alias = alias()
