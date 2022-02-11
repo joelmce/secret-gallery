@@ -1,5 +1,8 @@
 import css from "../stylesheets/header.module.css";
-export default function Preview({linkto}) {
+import { Link } from 'react-router-dom'
+
+export default function Preview(props) {
+
   const buttonStyle = {
     position: "absolute",
     top: 20,
@@ -8,9 +11,9 @@ export default function Preview({linkto}) {
 
   return (
     <>
-      <div className={`${css.primary_button} ${css.wbutton}`} style={buttonStyle}>
+      <Link to="/new" className={`${css.primary_button} ${css.wbutton}`} style={buttonStyle}>
         Preview
-      </div>
+      </Link>
     </>
   )
 }

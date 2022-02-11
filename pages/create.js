@@ -2,7 +2,8 @@ import Index from "./new";
 import Head from "next/head";
 import styles from "../styles/home.module.css";
 import Edit from '../components/create_gallery/Edit'
-import Preview from '../components/create_gallery/Preview'
+import LinkButton from '../components/LinkButton'
+
 
 export default function Create({ wallet }) {
   return (
@@ -14,7 +15,9 @@ export default function Create({ wallet }) {
       </Head>
 
       <Edit/>
-      <Preview/>
+      <LinkButton to='/new' onClick={() => {
+        window.location.href = "/new";
+      }}>Preview</LinkButton>
 
       <style global jsx>{`
             body {
