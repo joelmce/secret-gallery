@@ -40,6 +40,7 @@ export default class Index extends Component {
       if (state.camera.position.y < 3) {
         state.camera.position.y = 3;
       }
+
     });
     return null;
   }

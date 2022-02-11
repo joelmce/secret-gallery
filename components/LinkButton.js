@@ -7,7 +7,8 @@ const LinkButton = (props) => {
   const buttonStyle = {
     position: "absolute",
     top: 20,
-    right: 20
+    right: 20,
+    cursor: "pointer"
   }
 
   const {
