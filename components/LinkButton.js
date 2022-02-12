@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router'
-import header from ".//stylesheets/header.module.css";
+import header from "./stylesheets/header.module.css";
 
 const LinkButton = (props) => {
   const buttonStyle = {

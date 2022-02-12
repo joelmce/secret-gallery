@@ -9,6 +9,9 @@ import {
 
 import Experiment from "../../galleries/Experiment";
 import HoverBox from "../../components/HoverBox";
+import MainMenu from '../../components/MainMenu'
+
+
 
 export default class Index extends Component {
   constructor(props) {
@@ -16,7 +19,9 @@ export default class Index extends Component {
     this.state = {
       show: true,
     };
+
   }
+
 
   /**
    * Returns the state for different classes
@@ -47,6 +52,7 @@ export default class Index extends Component {
 
   render() {
     let { show } = this.state
+
     return (
       <>
         {show && <HoverBox/>}
@@ -68,7 +74,7 @@ export default class Index extends Component {
               </Html>
             }
           >
-            <PointerLockControls />
+            <PointerLockControls/>
             <Experiment />
             <FlyControls movementSpeed={10} />
             <this.CameraOp />

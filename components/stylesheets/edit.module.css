@@ -5,6 +5,7 @@
   padding-top: 4em;
   align-items: center;
   text-align: center;
+  position: absolute;
 }
 
 .sidebar_items {

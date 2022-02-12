@@ -4,8 +4,39 @@ import styles from "../styles/home.module.css";
 import Edit from '../components/create_gallery/Edit'
 import LinkButton from '../components/LinkButton'
 
+import React, { Component, Suspense, useEffect, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import {
+  FlyControls,
+  Html,
+  Loader,
+  PointerLockControls,
+} from "@react-three/drei";
+
+import Experiment from "../galleries/Experiment";
+import HoverBox from "../components/HoverBox";
+import MainMenu from '../components/MainMenu'
+/**
+ * Handles the custom camera state so we can force the player in one position
+ * @returns null but will never return null
+ */
+function CameraOp() {
+  useFrame((state) => {
+    if (state.camera.position.y > 3) {
+      state.camera.position.y = 3;
+    }
+    if (state.camera.position.y < 3) {
+      state.camera.position.y = 3;
+    }
+
+  });
+  return null;
+}
 
 export default function Create({ wallet }) {
+
+
+
   return (
     <>
       <Head>
@@ -14,10 +45,36 @@ export default function Create({ wallet }) {
 
       </Head>
 
+      <Canvas
+        concurrent
+        gl={{ alpha: true }}
+        camera={{ position: [20, 3, -20], fov: 60 }}
+        shadows
+        style={{ height: "100vh", width: "100vw", top: 0, left: 0, position: "absolute" }}
+        colorManagement
+        onCreated={(gl) => {
+          gl.physicallyCorrectLights = true;
+        }}
+      >
+
+        <Suspense
+          fallback={
+            <Html center zIndexRange={1}>
+              <Loader />
+            </Html>
+          }
+        >
+          <PointerLockControls/>
+          <Experiment />
+          <FlyControls movementSpeed={10} />
+          <CameraOp />
+        </Suspense>
+      </Canvas>
       <Edit/>
-      <LinkButton to='/new' onClick={() => {
-        window.location.href = "/new";
-      }}>Preview</LinkButton>
+
+            <LinkButton to='/new' onClick={() => {
+              window.location.href = "/new";
+            }}>Preview</LinkButton>
 
       <style global jsx>{`
             body {
