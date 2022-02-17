@@ -21,6 +21,7 @@
     "react-router-dom": "^6.2.1",
     "secretjs": "^0.17.5",
     "three": "^0.137.5",
+    "use-cannon": "^0.5.3",
     "use-key-state": "^0.1.9",
     "zustand": "^3.6.9"
   },

@@ -1,24 +1,9 @@
 import menu from './stylesheets/mainmenu.module.css'
 
 export default function MainMenu(props) {
-  let title = props.toggle
-
-  if(title == "on") {
-    return (
-      <div className={menu.container} style={{display: block}}>
+  return (
+    <div className={menu.container}>
         This is a test
-      </div>
-    )
-  } else {
-    return (
-      <div className={menu.container} style={{display: none}}>
-        This is a test
-      </div>
-
-    )
-  }
-
-
-
-
+    </div>
+  )
 }
